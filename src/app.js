@@ -3,16 +3,9 @@ import ProductManager from "./ProductManager.js";
 
 const app = express();
 const port = 8080;
-
 const productManager = new ProductManager();
 
-async function generateProductLinks() {
-  let linksHTML = "Busqueda por ID:<br><br>";
-  for (let i = 1; i <= 10; i++) {
-    linksHTML += `<a href="/products/${i}">Producto con ID: ${i}</a><br>`;
-  }
-  return linksHTML;
-}
+app.use(express.urlencoded({ extended: true }));
 
 // Función para formatear JSON de respuesta para que se vea mejor, tabulado y con estilo
 function formatJSONResponse(data) {
@@ -27,9 +20,10 @@ function formatJSONResponse(data) {
 app.get("/", async (req, res) => {
   try {
     const productLinks = await generateProductLinks();
+    const fiveProductsLinkHTML = generateFiveProductsLinkHTML(port);
     const htmlcode = `<head><title>Gestión de productos</title></head>
   <body><h1>BackEnd: Gestión de productos para Entrega 3</h1></body>`;
-    const homePage = `${htmlcode}Ingresar en <a href="/products">/products</a> para ver el listado completo de productos<br><br><br><br>${productLinks}`;
+    const homePage = `${htmlcode}Ingresar en <a href="/products">/products</a> para ver el listado completo de productos<br><br>${fiveProductsLinkHTML}<br><br><br>${productLinks}`;
     res.send(
       `<div style="font-family: Tahoma, sans-serif; font-size: 16px;">${homePage}</div>`
     );
@@ -42,7 +36,12 @@ app.get("/", async (req, res) => {
 app.get("/products", async (req, res) => {
   try {
     const limit = parseInt(req.query.limit) || undefined;
-    const products = await productManager.getProducts(limit);
+    let products = await productManager.getProducts();
+    // Aplicar el límite si se proporciona
+    if (limit !== undefined) {
+      products = products.slice(0, limit);
+    }
+
     res.status(200).send(formatJSONResponse(products));
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -63,6 +62,20 @@ app.get("/products/:pid", async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
+
+// Generar enlaces para los productos
+async function generateProductLinks() {
+  let linksHTML = "Busqueda por ID:<br><br>";
+  for (let i = 1; i <= 10; i++) {
+    linksHTML += `<a href="/products/${i}">Producto con ID: ${i}</a><br>`;
+  }
+  return linksHTML;
+}
+
+// Generar enlace para los primeros cinco productos
+function generateFiveProductsLinkHTML(port) {
+  return `<br>Ingresar en <a href="http://localhost:${port}/products?limit=5">/products?limit=5</a> para ver el listado de los primeros 5 productos`;
+}
 
 app.listen(port, () => {
   console.log(`Server listening at http://localhost:${port}`);
