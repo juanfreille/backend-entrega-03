@@ -1,0 +1,16 @@
+{
+  "name": "entrega3",
+  "version": "1.0.0",
+  "description": "entrega numero 3 de backend",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/app.js"
+  },
+  "author": "",
+  "type": "module",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.3"
+  }
+}

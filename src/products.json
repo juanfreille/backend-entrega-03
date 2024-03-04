@@ -1,0 +1,92 @@
+[
+  {
+    "title": "Pantalon Babucha",
+    "description": "pantalones",
+    "price": 16500,
+    "thumbnail": "babucha.webp",
+    "code": "AAA123",
+    "stock": 5,
+    "id": 1
+  },
+  {
+    "title": "Pantalon Jeans",
+    "description": "pantalones",
+    "price": 15500,
+    "thumbnail": "jeans.webp",
+    "code": "BBB123",
+    "stock": 7,
+    "id": 2
+  },
+  {
+    "title": "Pantalon Joggers",
+    "description": "pantalones",
+    "price": 15500,
+    "thumbnail": "joggers.webp",
+    "code": "CCC123",
+    "stock": 8,
+    "id": 3
+  },
+  {
+    "title": "Pantalon Baggy",
+    "price": 15500,
+    "thumbnail": "baggy.webp",
+    "description": "pantalones",
+    "code": "DDD123",
+    "stock": 3,
+    "id": 4
+  },
+  {
+    "title": "Buzo blue",
+    "price": 16500,
+    "thumbnail": "buzo.webp",
+    "description": "buzos",
+    "code": "EEE123",
+    "stock": 12,
+    "id": 5
+  },
+  {
+    "title": "Buzo escoces",
+    "price": 16500,
+    "thumbnail": "camisa.webp",
+    "description": "buzos",
+    "code": "FFF123",
+    "stock": 15,
+    "id": 6
+  },
+  {
+    "title": "Sweater grey",
+    "price": 12500,
+    "thumbnail": "sweater.webp",
+    "description": "buzos",
+    "code": "GGG123",
+    "stock": 18,
+    "id": 7
+  },
+  {
+    "title": "Canguro b&w",
+    "price": 16500,
+    "thumbnail": "canguro.webp",
+    "description": "buzos",
+    "code": "HHH123",
+    "stock": 20,
+    "id": 8
+  },
+  {
+    "title": "Remera Tommy",
+    "price": 5000,
+    "thumbnail": "remeraT.webp",
+    "description": "remeras",
+    "code": "III123",
+    "stock": 5,
+    "id": 9
+  },
+  {
+    "title": "Campera chopera",
+    "price": 35000,
+    "thumbnail": "chopera.webp",
+    "description": "camperas",
+    "code": "JJJ123",
+    "stock": 3,
+    "id": 10
+  }
+]
